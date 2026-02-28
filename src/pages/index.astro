@@ -1,17 +1,250 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import ReviewCard from '../components/ReviewCard.astro';
+import ProcessStep from '../components/ProcessStep.astro';
+import ContactForm from '../components/ContactForm.astro';
 
+const reviews = [
+  {
+    name: "WILL WARREN",
+    review: "Awesome job! Deck Masters built a custom deck on the back of our house where we previously had only a small set of stairs. The deck was of very high quality construction, and classic wood appeal. The team was professional in all aspects of the deck construction from the quote/communication hiccup during the process, but Jordan was very quick to respond and work through any concerns. I believe Deck Masters truly wants their clients to be completely satisfied with their work and the decks they build... which we are! Would definitely recommend Deck Masters to those in the market for a new deck!"
+  },
+  {
+    name: "PATIENCE",
+    review: "We ordered and also resized a few windows (Deck Masters, I contacted Jordan Webb or Sean/Resizing Two Windows). My husband handled most of the interaction but the scanning was quick and was checked almost immediately. Response regarding a meeting at the house so he could give a feel for exactly what we would like to have done. No other builder responded as fast nor did they show the willingness to fit us in. Other companies said they didn't need to visit for the headlines to say. I wasn't comfortable with that. My main idea for the deck was not 100% standard but Jordan explained what would happen and what we could expect. It was that way through the whole build. Pretty much everything about old airways was removed and hauled away, they found some water damage under the vinyl siding which wasn't fully unexpected (problem area and one neither could fix if I wanted it done). They also did some soffit and explained that it was old work. The deck looks fantastic and fits perfectly in the space."
+  },
+  {
+    name: "CHRIS TAYLOR",
+    review: "I have worked with Deck Masters for several years. Jordan and his crew are always friendly and professional. They take pride in their work and stand behind what they build. Would highly recommend them for any deck project big or small."
+  },
+  {
+    name: "KATELYNN ROWE",
+    review: "Jordan & his crew did an absolutely amazing job, & the craftsmanship is second to none. They transformed our entrance porch & made it look seamless per their construction process... They went above and beyond what we asked for & couldn't be happier with our new decks. We will absolutely use them for any projects in the future! Jordan made sure to verify availability for questions answered. Very professional & friendly too to do business with. Will be seeing their use again for future builds for sure. Same below \"before & after\" pictures of the decks so you can see the difference in quality & craftsmanship for yourselves. Thank You Jordan & the Crew, you guys rock!!"
+  },
+  {
+    name: "DANIEL HEPLER",
+    review: "I hired Jordan, Seamus and team at Deck Masters for the building of our new deck. Had with them as they updated my deck. They came out looked at the damage, formulated a plan and went to work. Despite the February weather they quickly removed all of the rotting broken decking and supports without asking. Throughout the repair process. Why they were doing what and why it was being done that way. The new wood that went into place was better, safer, easy going wood. The mess was cleaned up and the job was finished in just two days. I also want to thank Joelle for putting up with my phone calls. She kept me posted as to my progress on the wait list. She was always polite and upbeat... THANKS TO ALL WHO HELPED!! MESSY!!"
+  },
+  {
+    name: "SHANNON KOH",
+    review: "Deck Masters built a beautiful deck on the back of our house where we previously had only a small set of stairs. The deck was of very high quality construction, and classic wood appeal. The team was professional in all aspects of the deck construction. There was a couple of communication hiccups during the process, but Jordan was very quick to respond and work through any concerns. I believe Deck Masters truly wants their clients to be completely satisfied with their work and the decks they build... which we are! Would definitely recommend Deck Masters to those in the market for a new deck!"
+  },
+  {
+     name: "MATTHEW BLAKESLEE",
+     review: "Professional, precise, prompt, perfection, clean, accurate. Good clean up. Highly recommend them!!"
+  },
+  {
+     name: "RUTH MCGARVEY",
+     review: "I've worked with Jordan and the guys over at Deck Masters in a few different ways and as a fellow business owner I really admire these guys. They have a smooth operation and work with the utmost integrity. Couldn't recommend them enough!!"
+  }
+];
+
+const processSteps = [
+  {
+    number: "01",
+    title: "CONSULTATION & DESIGN",
+    description: "We meet with you to understand your vision, yard conditions, and lifestyle needs. Using advanced 3D CAD rendering, we create a detailed visual plan you can approve before construction begins."
+  },
+  {
+    number: "02",
+    title: "PERMITTING & PLANNING",
+    description: "We handle all Municipality of Anchorage permitting, zoning reviews, and structural inspections. Our relationships with local inspectors ensure smooth approvals and code compliance."
+  },
+  {
+    number: "03",
+    title: "PRECISION ENGINEERING",
+    description: "We engineer for Alaska frost-heave helical piers, seismic bracing and snow load calculations standard on every build. No shortcuts—only engineering that protects your investment."
+  },
+  {
+    number: "04",
+    title: "RAPID CONSTRUCTION",
+    description: "Our Stoke team deploys efficiently to minimize disruption. Simple replacements complete in 24 hours. Complex builds executed with military precision and attention to detail."
+  },
+  {
+    number: "05",
+    title: "FINAL WALKTHROUGH",
+    description: "We conduct a comprehensive inspection with you, covering every detail. The deck is yours when you're 100% satisfied—not before."
+  },
+  {
+    number: "06",
+    title: "LIFETIME SUPPORT",
+    description: "Your deck comes with a comprehensive warranty, maintenance plans, and our commitment to stand behind every board we install. We're here for the long haul."
+  }
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Deck Masters - Built Right, Built Fast">
+  <main>
+    <!-- Reviews Section -->
+    <section class="py-20 px-4 md:px-8 bg-[#111]">
+      <div class="max-w-7xl mx-auto">
+        <div class="columns-1 md:columns-2 lg:columns-4 gap-6 space-y-6">
+          {reviews.map((review) => (
+            <ReviewCard name={review.name} review={review.review} />
+          ))}
+          <!-- Placeholder for remaining reviews to fill the grid visually -->
+             <ReviewCard name="SKO" review="Jordan was great about answering all my questions, his crew did great work and were friendly and always had a smile. Communicated with us every step and they all did a great job with it. I'm very happy with my deck." />
+             <ReviewCard name="ANESIA S" review="Jordan and crew did a great job getting our deck installed prior to our house going on the market. We will definitely use Deck Masters AK on future projects." />
+             <ReviewCard name="BOOMER ROSS" review="Working with Jordan, Deck Masters, Was getting our awesome new deck built. We really enjoyed. Completed this season. We can't wait to see how 'any more warmer as you help create for your customers in 2023!'" />
+             <ReviewCard name="MICHELLE MYERS" review="Jordan & his crew did an absolutely amazing job, & the craftsmanship is second to none. They transformed our entrance porch & made it look seamless per their construction process..." />
+             <ReviewCard name="SHERRI MULRANEY" review="So bids from multiple companies but Jordan came out and made us comfortable with the project plan & price/cost. Getting that out done down to 'a minute of our time' as we like fast and detailed projects wrapped up in 2 weeks. From Joelle in the office to Jeff our onsite foreman, everyone was professional and really easy to work with." />
+             <ReviewCard name="ANDREW NEUERBURG" review="We had damage to our deck railing during a big wind storm. Deck Masters was able to remove the old railing and install a new, sturdier railing in a timely fashion. We now have put in because the summer wasn't long started and has had no issue in the winter. Extremely pleased with the craftsmanship of Sean, Robert and Jeff. They were fast, friendly and skilled. Would recommend Deck Masters to anyone looking for quality work." />
+             <ReviewCard name="JACKIE SLAGLE" review="We hired Deck Masters for a small project and they did a fantastic job! We had a deadline for the completion date and Robert worked all weekend to ensure that we got it done as soon as possible. I would highly recommend this company to anyone looking for a reliable contractor and does very good work!" />
+             <ReviewCard name="DYLAN WEBB" review="This process started amazingly with an incredibly prompt and professional bid. We faced challenges with scheduling our deck construction (as ended up having the build about 8 months after we started) and also had some major issues along the way with miscommunication on design features that we were told during the initial bid that we had to navigate past. However, I gave this company 5 stars because as soon as these issues were brought to Jordan's attention, he always complied in a professional and timely manner to get it done to our liking. I would recommend this service to others." />
+        </div>
+        
+        <div class="mt-12 text-center">
+          <a href="#" class="inline-flex items-center text-[#f57f20] font-bold text-sm tracking-wide uppercase hover:text-white transition-colors">
+            Leave Us A Review On Google <span class="ml-2">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Process Section -->
+    <section class="py-20 px-4 md:px-8 bg-[#111] border-t border-gray-900">
+      <div class="max-w-7xl mx-auto">
+        <div class="mb-16">
+          <p class="text-[#f57f20] text-sm font-bold tracking-widest uppercase mb-2">Our Process</p>
+          <h2 class="text-5xl md:text-6xl font-black text-white mb-6 uppercase leading-tight">
+            Built Right,<br/>Built Fast.
+          </h2>
+          <p class="text-gray-400 max-w-2xl leading-relaxed">
+            From initial consultation to lifetime support, we follow a proven process that ensures your deck is engineered precisely, built efficiently, and backed by our commitment to excellence.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
+          {processSteps.map((step) => (
+            <ProcessStep {...step} />
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="py-24 px-4 bg-[#111] text-center">
+      <p class="text-gray-300 max-w-2xl mx-auto mb-8 text-lg">
+        Ready to start your deck journey? Contact us today for a free consultation and 3D design rendering.
+      </p>
+      <a href="tel:9077828253" class="inline-block bg-[#f57f20] hover:bg-[#d96a17] text-white font-bold py-4 px-8 rounded uppercase tracking-wider transition-colors">
+        Call (907) 802-8253 <span class="ml-2">→</span>
+      </a>
+    </section>
+
+    <!-- Footer / Contact Section -->
+    <footer class="bg-black py-20 px-4 md:px-8 border-t border-gray-900">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          
+          <!-- Left Column: Contact Info -->
+          <div>
+            <h2 class="text-6xl font-black text-white mb-2 uppercase leading-none">Ready To</h2>
+            <h2 class="text-6xl font-black text-[#f57f20] mb-12 uppercase leading-none">Build?</h2>
+            
+            <p class="text-gray-400 mb-12 max-w-md leading-relaxed">
+              Schedule your complimentary design consultation today. Let's discuss how to elevate your property value and lifestyle.
+            </p>
+            
+            <div class="space-y-6 mb-12">
+              <div class="flex items-center space-x-4">
+                <div class="w-8 h-8 rounded-full bg-[#1f1f1f] flex items-center justify-center text-[#f57f20]">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                  </svg>
+                </div>
+                <span class="text-white font-bold">(907) 782-4043</span>
+              </div>
+              
+              <div class="flex items-center space-x-4">
+                <div class="w-8 h-8 rounded-full bg-[#1f1f1f] flex items-center justify-center text-[#f57f20]">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                  </svg>
+                </div>
+                <span class="text-white font-bold uppercase">CONTACT@DECKMASTERSAK.COM</span>
+              </div>
+              
+              <div class="flex items-center space-x-4">
+                 <div class="w-8 h-8 rounded-full bg-[#1f1f1f] flex items-center justify-center text-[#f57f20]">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                  </svg>
+                </div>
+                <span class="text-white font-bold uppercase">825 W 58TH AVE UNIT J, ANCHORAGE, AK 99518</span>
+              </div>
+
+              <div class="flex items-center space-x-4">
+                 <div class="w-8 h-8 rounded-full bg-[#1f1f1f] flex items-center justify-center text-[#f57f20]">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <span class="text-white font-bold uppercase">7:30 AM - 7:00 PM, SUN - SAT</span>
+              </div>
+            </div>
+            
+            <!-- Map Placeholder -->
+            <div class="w-full h-48 bg-gray-800 rounded-lg overflow-hidden relative grayscale opacity-70 hover:grayscale-0 transition-all">
+              <div class="absolute inset-0 flex items-center justify-center text-gray-500">
+                Google Map Embed Placeholder
+              </div>
+            </div>
+          </div>
+          
+          <!-- Right Column: Form -->
+          <div>
+            <ContactForm />
+          </div>
+        </div>
+
+        <!-- Bottom Links -->
+        <div class="mt-24 pt-8 border-t border-gray-900 grid grid-cols-2 md:grid-cols-4 gap-8 text-xs text-gray-500 uppercase tracking-wider">
+           <div>
+             <h4 class="text-white font-bold mb-4">Services</h4>
+             <ul class="space-y-2">
+               <li><a href="#" class="hover:text-[#f57f20]">Composite Decking</a></li>
+               <li><a href="#" class="hover:text-[#f57f20]">Hardwood Decks</a></li>
+               <li><a href="#" class="hover:text-[#f57f20]">Outdoor Living</a></li>
+             </ul>
+           </div>
+           <div>
+             <h4 class="text-white font-bold mb-4">Company</h4>
+             <ul class="space-y-2">
+               <li><a href="#" class="hover:text-[#f57f20]">About Us</a></li>
+               <li><a href="#" class="hover:text-[#f57f20]">Our Process</a></li>
+               <li><a href="#" class="hover:text-[#f57f20]">Portfolio</a></li>
+             </ul>
+           </div>
+           <div>
+             <h4 class="text-white font-bold mb-4">Neighborhoods</h4>
+             <ul class="space-y-2">
+               <li><a href="#" class="hover:text-[#f57f20]">Anchorage</a></li>
+               <li><a href="#" class="hover:text-[#f57f20]">Eagle River</a></li>
+               <li><a href="#" class="hover:text-[#f57f20]">Girdwood</a></li>
+               <li><a href="#" class="hover:text-[#f57f20]">Wasilla</a></li>
+             </ul>
+           </div>
+            <div>
+             <h4 class="text-white font-bold mb-4">Legal</h4>
+             <ul class="space-y-2">
+               <li><a href="#" class="hover:text-[#f57f20]">Privacy Policy</a></li>
+               <li><a href="#" class="hover:text-[#f57f20]">Terms of Service</a></li>
+             </ul>
+           </div>
+        </div>
+        
+        <div class="mt-12 pt-8 border-t border-gray-900 flex flex-col md:flex-row justify-between text-[10px] text-gray-600 uppercase">
+          <div>© 2026 Deck Masters. All Rights Reserved.</div>
+          <div class="flex space-x-6 mt-4 md:mt-0">
+            <span>Site by Stoke</span>
+            <span>Alaska Service Area</span>
+            <span>Deck Building</span>
+            <span>Now Hiring</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+</Layout>
