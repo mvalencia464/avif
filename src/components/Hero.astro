@@ -1,0 +1,84 @@
+---
+import { Image } from 'astro:assets';
+import EstimateForm from './EstimateForm.jsx';
+// Using a high-quality placeholder since deck-bg.jpg is missing
+const heroImage = "https://images.unsplash.com/photo-1590059393010-909690090901?q=80&w=1920&auto=format&fit=crop";
+---
+
+<section class="relative min-h-screen flex items-center bg-zinc-950 text-white overflow-hidden pt-20">
+  <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent z-10"></div>
+    <img 
+      src={heroImage} 
+      alt="Luxury Deck Construction" 
+      class="w-full h-full object-cover grayscale-[30%]"
+      loading="eager"
+    />
+  </div>
+
+  <div class="container mx-auto relative z-20 grid lg:grid-cols-2 gap-12 items-center px-6">
+    <div class="max-w-2xl">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="h-[2px] w-12 bg-orange-600"></div>
+        <span class="uppercase tracking-[0.3em] text-orange-500 font-black text-xs">
+          Anchorage's #1 Rated Deck Builder
+        </span>
+      </div>
+
+      <h1 class="text-6xl md:text-8xl font-black uppercase leading-[0.85] mb-8 italic tracking-tighter font-display">
+        Turn Your <br/> Backyard <br/> Into a Resort.
+      </h1>
+
+      <div class="flex gap-4 mb-8">
+        <span class="text-orange-600 text-5xl font-serif">“</span>
+        <p class="text-2xl italic font-light text-zinc-200 leading-tight">
+          Deck Masters made it easy—beautiful deck, great people.
+        </p>
+      </div>
+
+      <p class="text-lg text-zinc-400 max-w-md mb-8 leading-relaxed font-medium">
+        Skip the contractor nightmares. Weekly check-ins, transparent pricing, 
+        and frost-proof engineering. Build your 21-day legacy today.
+      </p>
+
+      <div class="flex items-center gap-3 text-[10px] font-bold tracking-widest text-zinc-500">
+        <span class="w-4 h-4 bg-white rounded-full flex items-center justify-center text-black font-bold" style="font-size: 8px;">G</span>
+        <span>GOOGLE REVIEWS • #1 RATED IN ANCHORAGE</span>
+      </div>
+    </div>
+
+    <div class="relative group">
+      <div class="absolute -top-16 -left-12 hidden xl:block pointer-events-none">
+        <span class="text-white font-handwriting italic text-2xl -rotate-12 block mb-2 opacity-80">
+          Start Your Project Here!
+        </span>
+        <svg width="60" height="40" viewBox="0 0 60 40" fill="none" class="rotate-12 opacity-80">
+          <path d="M5 5C15 35 55 35 55 35M55 35L45 30M55 35L50 42" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      
+      <EstimateForm client:load />
+      
+      <div class="mt-6 flex justify-center items-center gap-2">
+        <div class="flex gap-0.5 text-orange-500 text-sm">
+          {[...Array(5)].map(() => <span>★</span>)}
+        </div>
+        <span class="text-[10px] text-zinc-500 font-black tracking-tighter">4.9, 122 GOOGLE REVIEWS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="bg-black border-t border-zinc-900 py-6">
+  <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 px-6 text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">
+    <div class="flex items-center gap-2">
+      <span class="text-orange-600 text-sm">★</span> #1 Rated in Anchorage
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="text-orange-600 text-sm">🛡️</span> 25 Year Structural Warranty
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="text-orange-600 text-sm">🔨</span> Master Craftsmen Certified
+    </div>
+  </div>
+</div>

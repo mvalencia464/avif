@@ -1,1 +1,45 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/src/assets/fonts/Inter-VariableFont_opsz,wght.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Oswald';
+  src: url('/src/assets/fonts/Oswald-VariableFont_wght.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Caveat';
+  src: url('/src/assets/fonts/Caveat-VariableFont_wght.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+@theme {
+  --color-brand-orange: #f97316;
+  --color-bg-dark: #111;
+  --color-bg-card: #1f1f1f;
+  
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Oswald', Impact, sans-serif;
+  --font-handwriting: 'Caveat', cursive;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
